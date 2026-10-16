@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task 4</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання 4:");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+
+        function deleteEmployee (employees, id){
+            return employees.filter (employee => employee.id !== id);
+        }
+
+        console.log ("Початковий масив: ");
+        console.log(employees);
+
+        const afterDelete = deleteEmployee(employees, "E-001");
+        console.log("Після delete (E-001 виделено: )");
+        console.log(afterDelete);
+
+        console.log("Оригінал досі має довжину 5: ", employees.length === 5);
+    </script>
+</body>
+</html>

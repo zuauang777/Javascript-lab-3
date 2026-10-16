@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task 1</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання 1:");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+
+        function CreateEmployee(employees, NewEmployee){
+            return [...employees, NewEmployee];
+        }   
+
+        console.log("Початковий масив: ");
+        console.log(employees);
+
+        const afterCreate = CreateEmployee(employees, {name: "Мельник Соломія Андріївна",rank: "QA Tester",id: "E-006"});
+        console.log("Після Create: ");
+        console.log(afterCreate);
+        console.log("Оригінал не змінився(довжина 5):", employees.length === 5);
+    </script>
+</body>
+</html>

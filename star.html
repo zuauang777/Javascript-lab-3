@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task star</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання додатково:");
+        console.log("Початковий масив №1:");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+
+        console.log(employees);
+
+
+        console.log("Початковий масив №2:");
+        const cats = [
+            {id: 1, name: "Persik", age: 2},
+            {id: 2, name: "Mila", age: 12}
+        ];
+        console.log(cats);
+        function updateById(items,id, changes){
+            return items.map (item => (item.id === id ? {...item, ...changes} : item ))
+        }
+
+        function deleteById (items, id){
+            return items.filter (item => item.id !== id)
+        }
+        console.log("Працівники: Update E-005");
+        console.log(updateById(employees, "E-005", { rank: "Project Manager" }));
+
+        console.log("Працівники: Delete E-001");
+        console.log(deleteById(employees, "E-001"));
+
+        console.log("Cats: Update 1");
+        console.log(updateById(cats, 1 , {name : "Orange"}));
+
+        console.log("Cats: Delete 2");
+        console.log(deleteById(cats, 2));
+
+        console.log("Оригінали не змінились:", employees.length === 5 && cats.length === 2);
+        
+    </script>
+</body>
+</html>

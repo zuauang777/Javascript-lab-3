@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task 5</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання 5");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+
+//task 1
+        function CreateEmployee(employees, NewEmployee){
+            return [...employees, NewEmployee];
+        }   
+//task 2
+function readEmployeeById (employees, id){
+            return employees.find(employee => employee.id === id);
+        }
+        function readEmployeeByRank (employees, rank){
+            return employees.filter(employee =>employee.rank === rank);
+        }
+//task 3
+
+        function updateEmployee(employees, id, changes){
+            return employees.map (employee => employee.id === id ? {...employee, ...changes} : employee);
+        }
+//task 4
+ function deleteEmployee (employees, id){
+            return employees.filter (employee => employee.id !== id);
+        }
+//task 5
+        function printEmployees(employees){
+            for (const employee of employees){
+                console.log (`${employee.name} - ${employee.rank} [${employee.id}]`);
+            }
+        }
+
+        console.log("Демонстрація: Create -> Read -> Update -> Delete");
+        console.log("Початковий масив: ");
+        printEmployees(employees);
+
+        console.log("\n Після Create, додали новго робітника, E-006");
+        const afterCreate = CreateEmployee(employees, {name: "Мельник Соломія Андріївна",rank: "QA Tester",id: "E-006"});
+        printEmployees(afterCreate);
+
+        console.log("\n Read за ID E-002");
+        console.log(readEmployeeById(afterCreate, "E-002"));
+
+        console.log("\n Усіх з посадою QA Tester");
+        console.log(readEmployeeByRank(afterCreate, "QA Tester"));
+
+        console.log("\n Після update, E-005 змінив посаду на Project Manager");
+        const afterUpdate = updateEmployee(afterCreate, "E-005" , {rank:"Project Manager"});
+        printEmployees(afterUpdate);
+
+        console.log("\n Після delete");
+        const afterDelete = deleteEmployee(afterUpdate, "E-001");
+        printEmployees(afterDelete);
+
+
+        console.log("Перевірка незмінності: ");
+        console.log("Довжина Employee залишилась 5: ", employees.length === 5);
+        console.log("E-005 досі Teamlead:", employees[4].rank === "Teamlead");
+        console.log("E-001 досі існує:", readEmployeeById(employees, "E-001") !== undefined);
+        console.log("E-006 не з'явився:", readEmployeeById(employees, "E-006") === undefined)
+
+    </script>
+</body>
+</html>

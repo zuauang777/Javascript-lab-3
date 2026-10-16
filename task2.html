@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task 2</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання 2:");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+    
+    
+        function readEmployeeById (employees, id){
+            return employees.find(employee => employee.id === id);
+        }
+        function readEmployeeByRank (employees, rank){
+            return employees.filter(employee =>employee.rank === rank);
+        }
+    
+
+        console.log("Read за ID E-002");
+        console.log(readEmployeeById(employees, "E-002"));
+
+        console.log("Read за ID E-007");
+        console.log(readEmployeeById(employees, "E-007"));
+
+        console.log("Read усіх з посадою Frontend-developer");
+        console.log(readEmployeeByRank(employees, "Frontend-developer"));
+
+        console.log("Read усіх з посадою Teacher");
+        console.log(readEmployeeByRank(employees, "Teacher"));
+    </script>
+</body>
+</html>

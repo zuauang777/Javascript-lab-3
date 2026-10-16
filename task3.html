@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab 3 - task 3</title>
+</head>
+<body>
+    <script>
+        console.log("Завдання 3:");
+        const employees = [
+        {name: "Галушко Євдокія Тарасівна", rank: "Frontend-developer", id: "E-001"},
+        {name: "Завалішин Остап Григорович",rank: "QA Tester",id: "E-002"},
+        {name: "Криса Аркадій Петрович",rank: "Backend-developer",id: "E-003"},
+        {name: "Гончаренко Афанасій Іванович",rank: "Content-creator",id: "E-004"},
+        {name: "Дорошенко Жанна Ігорівна",rank: "Teamlead",id: "E-005"},];
+
+        function updateEmployee(employees, id, changes){
+            return employees.map (employee => employee.id === id ? {...employee, ...changes} : employee);
+        }
+        console.log("Початковий масив: ");
+        console.log (employees);
+        const afterUpdate = updateEmployee (employees, "E-005", {rank: "Project Manager"});
+        console.log("Після update (E-005 змінив посаду):");
+        console.log(afterUpdate);
+
+        console.log("Оригінал E-005 досі Teamlead: ", employees[4].rank === "Teamlead");
+
+    </script>
+</body>
+</html>
